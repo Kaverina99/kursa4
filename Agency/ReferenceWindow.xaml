@@ -1,0 +1,18 @@
+﻿<Window Icon="C:\Users\КАТЯ\Desktop\5 семестр\Прога\Agency\home.ico"
+        x:Class="Agency.ReferenceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Agency"
+        mc:Ignorable="d"
+        Title="Справка" Height="265.61" Width="657.317">
+    <Grid>
+        <Image Margin="426,10,9.2,10" Source="4dd0da92c616101ed7c8196a10053478.png" Stretch="Fill"/>
+        <Label Content="Приложение разработано в рамках курсовой работы по дисциплине: " HorizontalAlignment="Left" Margin="45,47,0,0" VerticalAlignment="Top" Width="443"/>
+        <Label Content="''Конструирование Программного Обеспечения'' студенткой 3-42В" HorizontalAlignment="Left" Margin="45,78,0,0" VerticalAlignment="Top" Width="453"/>
+        <Label Content=" ИГЭУ им. Ленина Кавериной Е.В., Иваново 2019" HorizontalAlignment="Left" Margin="45,109,0,0" VerticalAlignment="Top" Width="307"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="318,163,0,0" VerticalAlignment="Top" Width="133" Height="39" Click="Button_Click"/>
+
+    </Grid>
+</Window>
