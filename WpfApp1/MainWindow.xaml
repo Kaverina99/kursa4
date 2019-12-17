@@ -1,0 +1,129 @@
+﻿<Window Icon="C:\Users\КАТЯ\Desktop\5 семестр\Прога\house_home.ico"
+        x:Class="WpfApp1.MainWindow"
+        Background="#FFDCC3C3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Агентство недвижимости (REA)" Height="670" Width="1000" MinWidth="1000" MinHeight="650">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="773*"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl Name="TabControl" Background="#FFDCC3C3" TabStripPlacement="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"  Grid.ColumnSpan="2" Margin="0" >
+
+            <TabItem Background="#FFDCC3C3" Height="150">
+                <TabItem.Header>
+                    <Image  Source="/WpfApp1;component/Recources/h3.png" Stretch="Fill" Height="169" Width="158"/>
+                </TabItem.Header>
+                <Grid Background="#FFDCC3C3" >
+                    <Image Margin="436,10,10.2,346.4" Source="h4.png" Stretch="Uniform"/>
+                    <Label Content="Агентство &#xD;&#xA;недвижимости&#xD;&#xA;&quot;Авангард&quot;"  HorizontalAlignment="Left"  Margin="93,66,0,0" VerticalAlignment="Top"  Foreground="#FF5F2323" FontSize="36" FontFamily="Malgun Gothic Semilight"/>
+                    <Label Content="Данное приложение ..." HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="742" Foreground="#FF5F2323" FontSize="22" FontFamily="Malgun Gothic Semilight" FontWeight="Bold" Height="285"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Клиенты" FontFamily="Malgun Gothic Semilight" FontSize="30" Foreground="#FF5F2323" Height="60">
+                <Grid Background="#FFDCC3C3" >
+                    <DataGrid Name="dataGridClient" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10,10.4" VerticalAlignment="Stretch"  Background="#FFE6E6D2"/>
+                    <Button Name="ButtonClientCreate" Content="Добавить" HorizontalAlignment="Left" Margin="239,29,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                    <Button Name="ButtonClientUpDate" Content="Изменить" HorizontalAlignment="Left" Margin="394,29,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Недвижимость" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+                <Grid Background="#FFDCC3C3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="221*"/>
+                        <RowDefinition Height="773*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <DataGrid Name="dataGridProperty" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,138,10.4,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
+
+                    <Button Name="ButtonPropertyCreate" Content="Добавить" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                    <Button Name="ButtonPropertyUpDate" Content="Изменить" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" RenderTransformOrigin="0.176,0.295"/>
+
+                    <ComboBox Name="ComboBoxPropertyType" HorizontalAlignment="Left" Margin="113,42,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+                    <ComboBox Name="ComboBoxPropertyRaion" HorizontalAlignment="Left" Margin="173,92,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+                    <ComboBox Name="ComboBoxPropertyMater" HorizontalAlignment="Left" Margin="602,42,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+                    <ComboBox Name="ComboBoxPropertyPlan" HorizontalAlignment="Left" Margin="439,42,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+                    <ComboBox Name="ComboBoxPropertyTarget" HorizontalAlignment="Left" Margin="276,42,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+                    <ComboBox Name="ComboBoxPropertyLay" HorizontalAlignment="Left" Margin="439,92,0,0" VerticalAlignment="Top" Width="158" Height="35"/>
+
+                    <Button Name="ButtonPropertyPoisk" Content="Поиск" HorizontalAlignment="Left" Margin="639,93,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+
+                    <Label Content="Вид недвижимости:" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                    <Label Content="Цель:" HorizontalAlignment="Left" Margin="276,10,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                    <Label Content="Сан. узел:" HorizontalAlignment="Left" Margin="369,100,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                    <Label Content="Район:" HorizontalAlignment="Left" Margin="123,100,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                    <Label Content="Материал:" HorizontalAlignment="Left" Margin="602,10,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                    <Label Content="Планиировка:" HorizontalAlignment="Left" Margin="444,10,0,0" VerticalAlignment="Top" FontSize="14" Width="158"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Сделки" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+                <Grid Background="#FFDCC3C3">
+                    <DataGrid Name="dataGridDeal" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"  Margin="10,100,10.2,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
+                    <Button Name="ButtonDealCreate" Content="Сделка" HorizontalAlignment="Left" Margin="240,28,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                    <Button Name="ButtonDealDelete" Content="Удалить" HorizontalAlignment="Left" Margin="395,28,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Договора" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+                <Grid Background="#FFDCC3C3">
+                    <DataGrid Name="dataGridDocument" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10.2,10.4" VerticalAlignment="Stretch"  Background="#FFE6E6D2"/>
+                    <ComboBox Name="ComboBoxProperty" HorizontalAlignment="Left" Margin="173,23,0,0" VerticalAlignment="Top" Width="425" Height="49"/>
+
+                    <Label Content="Адрес недвижимости" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontSize="14" Width="158" FontWeight="Bold"/>
+                    <Button Name="ButtonDocumentSave" Content="Сохранить договор" HorizontalAlignment="Left" Margin="612,51,0,0" VerticalAlignment="Top" Width="140" Height="35" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+
+                    <Label Content="из сделки:" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" FontSize="14" Width="158" FontWeight="Bold"/>
+                    <Button  Name="ButtonDocumentCreate" Content="Создать договор" HorizontalAlignment="Left" Margin="612,10,0,0" VerticalAlignment="Top" Width="140" Height="35" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Отчет об&#xD;&#xA;агентстве" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
+                <Grid Background="#FFDCC3C3">
+                    <DataGrid x:Name="dataGridOtchet1" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10.2,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
+                    <Button Name="ButtonOtchet1OK"  Content="ОК" HorizontalAlignment="Left" Margin="634,25,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+
+                    <DatePicker HorizontalAlignment="Left" Margin="70,32,0,0" VerticalAlignment="Top" Height="33" Width="206" FontSize="18"/>
+                    <Label Content="С:" HorizontalAlignment="Left" Margin="35,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.269,-0.24" Height="33" Width="30" FontSize="18"/>
+
+                    <DatePicker HorizontalAlignment="Left" Margin="372,32,0,0" VerticalAlignment="Top" Height="33" Width="216" FontSize="18"/>
+                    <Label Content="ПО:" HorizontalAlignment="Left" Margin="327,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.269,-0.24" Height="33" FontSize="18"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Отчет по&#xD;&#xA;агентам" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
+                <Grid Background="#FFDCC3C3">
+                    <DataGrid x:Name="dataGridOtchet2" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10.2,10.4" VerticalAlignment="Stretch"  Background="#FFE6E6D2"/>
+
+                    <DatePicker HorizontalAlignment="Left" Margin="58,10,0,0" VerticalAlignment="Top" Height="33" Width="216" FontSize="18"/>
+                    <Label Content="С:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.269,-0.24" Height="33" Width="30" FontSize="18"/>
+
+                    <DatePicker HorizontalAlignment="Left" Margin="58,62,0,0" VerticalAlignment="Top" Height="33" Width="216" FontSize="18"/>
+                    <Label Content="ПО:" HorizontalAlignment="Left" Margin="13,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.269,-0.24" Height="33" FontSize="18"/>
+
+                    <ComboBox Name="ComboBoxClientAg" HorizontalAlignment="Left" Margin="304,53,0,0" VerticalAlignment="Top" Width="307" Height="42"/>
+                    <Label Content="ФИО Агента:" HorizontalAlignment="Left" Margin="336,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.269,-0.24" Height="33" Width="207" FontSize="18"/>
+                    <Button Name="ButtonOtchet2OK" Content="ОК" HorizontalAlignment="Left" Margin="634,25,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Background="#FFDCC3C3" Header="Справка" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323 " Height="60">
+                <Grid Background="#FFDCC3C3">
+                    <Image Margin="275,46,-78.6,52" Source="!.png" Stretch="Uniform"/>
+                    <Label Content="Приложение разработано&#xD;&#xA; в рамках курсовой &#xD;&#xA;работы по дисциплине: &#xA;''Конструирование &#xD;&#xA;Программного &#xA;Обеспечения'' &#xD;&#xA;студенткой гр.3-42В &#xD;&#xA;ИГЭУ им. Ленина &#xA;Кавериной Е.В., &#xD;&#xA;Иваново 2019" HorizontalAlignment="Left" Margin="60,98,0,0" VerticalAlignment="Top" Width="384" Foreground="#FF5F2323"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</Window>
