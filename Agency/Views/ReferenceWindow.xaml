@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d"
         Title="Справка" Height="265.61" Width="657.317">
-    <Grid>
+    <Grid Background ="Seashell">
         <Image Margin="426,10,9.2,10" Source="4dd0da92c616101ed7c8196a10053478.png" Stretch="Fill"/>
         <Label Content="Приложение разработано в рамках курсовой работы по дисциплине: " HorizontalAlignment="Left" Margin="45,47,0,0" VerticalAlignment="Top" Width="443"/>
         <Label Content="''Конструирование Программного Обеспечения'' студенткой 3-42В" HorizontalAlignment="Left" Margin="45,78,0,0" VerticalAlignment="Top" Width="453"/>

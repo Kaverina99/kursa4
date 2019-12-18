@@ -7,21 +7,21 @@
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d"
         Title="Клиенты" Height="450" Width="800">
-    <Grid>
+    <Grid >
         <Image Margin="497,31,9.6,230" Source="kl1.png" Stretch="Fill"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox1" HorizontalAlignment="Left" Height="25" Margin="173,45,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="324"/>
         <Label Content="ФИО клиента: " HorizontalAlignment="Left" Margin="70,45,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox2" HorizontalAlignment="Left" Height="25" Margin="173,94,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="324"/>
         <Label Content="Паспорт: " HorizontalAlignment="Left" Margin="70,94,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox3" HorizontalAlignment="Left" Height="25" Margin="173,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
         <Label Content="ИНН: " HorizontalAlignment="Left" Margin="70,143,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox4" HorizontalAlignment="Left" Height="25" Margin="173,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
         <Label Content="БИК: " HorizontalAlignment="Left" Margin="70,190,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox5" HorizontalAlignment="Left" Height="25" Margin="173,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
         <Label Content="СНИЛС: " HorizontalAlignment="Left" Margin="70,241,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="173,292,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="324"/>
+        <TextBox Name="TextBox6" HorizontalAlignment="Left" Height="25" Margin="173,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
         <Label Content="Телефон: " HorizontalAlignment="Left" Margin="70,293,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Height="27" Margin="172,341,0,0" VerticalAlignment="Top" Width="324" RenderTransformOrigin="0.5,0.5">
+        <ComboBox Name="ComboBox1" HorizontalAlignment="Left" Height="27" Margin="172,341,0,0" VerticalAlignment="Top" Width="324" RenderTransformOrigin="0.5,0.5">
             <ComboBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,7 +32,7 @@
             </ComboBox.RenderTransform>
         </ComboBox>
         <Label Content="Цель: " HorizontalAlignment="Left" Margin="70,342,0,0" VerticalAlignment="Top"/>
-        <Button Content="ОК" HorizontalAlignment="Left" Margin="585,241,0,0" VerticalAlignment="Top" Width="131" Height="50" RenderTransformOrigin="0.484,0.646" Click="Button_Click_1"/>
-        <Button Content="Отмена" HorizontalAlignment="Left" Margin="585,318,0,0" VerticalAlignment="Top" Width="131" Height="50" RenderTransformOrigin="0.484,0.646" Click="Button_Click"/>
+        <Button Name="OK" Content="ОК" HorizontalAlignment="Left" Margin="585,241,0,0" VerticalAlignment="Top" Width="131" Height="50" RenderTransformOrigin="0.484,0.646" Click="Button_Click_1"/>
+        <Button Name="NOT" Content="Отмена" HorizontalAlignment="Left" Margin="585,318,0,0" VerticalAlignment="Top" Width="131" Height="50" RenderTransformOrigin="0.484,0.646" Click="Button_Click"/>
     </Grid>
 </Window>

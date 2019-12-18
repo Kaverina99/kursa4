@@ -25,45 +25,50 @@ namespace Agency
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonCreateClient_Click(object sender, RoutedEventArgs e)
         {
             ClientWindow f = new ClientWindow();
             f.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonUpdateClient_Click(object sender, RoutedEventArgs e)
         {
             ClientWindow f = new ClientWindow();
             f.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ButtonCreatePoperty_Click(object sender, RoutedEventArgs e)
         {
             PropertyWindow f = new PropertyWindow();
             f.Show();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void ButtonUpdateProperty_Click(object sender, RoutedEventArgs e)
         {
             PropertyWindow f = new PropertyWindow();
             f.Show();
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void ButtonDeal_Click(object sender, RoutedEventArgs e)
         {
             DealWindow f = new DealWindow();
             f.Show();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItemSpravka_Click(object sender, RoutedEventArgs e)
         {
             ReferenceWindow f = new ReferenceWindow();
             f.Show();
+        }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ComboBoxTip_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
