@@ -1,4 +1,5 @@
-﻿using System;
+﻿using WpfApp1.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
@@ -23,6 +23,10 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            ClientsTab.DataContext = new ClientVM();
+            DealsTab.DataContext = new DealVM();
+            PropertyTab.DataContext = new PropertyVM();
+
         }
 
     }

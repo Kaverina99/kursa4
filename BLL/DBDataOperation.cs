@@ -3,15 +3,16 @@ using DAL;
 using DAL.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using DAL.Repository;
 
 namespace BLL
 {
     public class DBDataOperation : IDbCrud//внедрение зависимости
     {
         IDbRepos db;
-        public DBDataOperation(IDbRepos repos)
+        public DBDataOperation()
         {
-            db = repos;
+            db = new DbReposSQL();
         }
 
         #region Client

@@ -1,48 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using WpfApp1.Models;
+using BLL;
+using BLL.Models;
+using DAL.Interfaces;
+using Agency;
 
 namespace WpfApp1.ViewModels
 {
     public class ClientVM : INotifyPropertyChanged
     {
-        private ClientVModel client;
 
-        public ClientVM(ClientVModel c)
-        {
-            client = c;
-        }
+        private ClientModel selectedClient;
 
-        public string Title
+        public ObservableCollection<ClientModel> Clients { get; set; }
+        public ClientModel SelectedClient
         {
-            get { return client.Title; }
+            get { return selectedClient; }
             set
             {
-                client.Title = value;
-                OnPropertyChanged("Title");
-            }
-        }
-        public string Company
-        {
-            get { return client.Company; }
-            set
-            {
-                client.Company = value;
-                OnPropertyChanged("Company");
-            }
-        }
-        public int Price
-        {
-            get { return client.Price; }
-            set
-            {
-                client.Price = value;
-                OnPropertyChanged("Price");
+                selectedClient = value;
+                OnPropertyChanged("SelectedClient");
             }
         }
 
@@ -52,5 +35,53 @@ namespace WpfApp1.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+
+
+        // команда добавления нового объекта
+        private RelayCommand addCommand;
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return addCommand ??
+                  (addCommand = new RelayCommand(obj =>
+                  {
+                      ClientWindow cl = new ClientWindow();
+                      cl.ShowDialog();
+                      //ClientModel client = new ClientModel();
+                      //Clients.Insert(0, client);
+                      //SelectedClient = client;
+                  }));
+            }
+        }
+        // команда удаления
+        private RelayCommand removeCommand;
+        public RelayCommand RemoveCommand
+        {
+            get
+            {
+                return removeCommand ??
+                  (removeCommand = new RelayCommand(obj =>
+                  {
+                      ClientModel client = obj as ClientModel;
+                      if (client != null)
+                      {
+                          Clients.Remove(client);
+                      }
+                  },
+                 //условие, при котором будет доступна команда
+                 (obj) => (Clients.Count > 0 && selectedClient != null)));
+            }
+        }
+
+
+        public ClientVM()
+        {
+            DBDataOperation ClassWorkDB = new DBDataOperation();
+            Clients = new ObservableCollection<ClientModel>(ClassWorkDB.GetAllClients());
+
+
+        }
+
     }
 }

@@ -21,29 +21,24 @@
                     <Image  Source="/WpfApp1;component/Recources/h3.png" Stretch="Fill" Height="169" Width="158"/>
                 </TabItem.Header>
                 <Grid Background="#FFDCC3C3" >
-                    <Image Margin="436,10,10.2,346.4" Source="h4.png" Stretch="Uniform"/>
+                    <Image Margin="436,10,10.2,346.4" Source="/WpfApp1;component/Recources/h4.png" Stretch="Uniform"/>
                     <Label Content="Агентство &#xD;&#xA;недвижимости&#xD;&#xA;&quot;Авангард&quot;"  HorizontalAlignment="Left"  Margin="93,66,0,0" VerticalAlignment="Top"  Foreground="#FF5F2323" FontSize="36" FontFamily="Malgun Gothic Semilight"/>
                     <Label Content="Данное приложение ..." HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="742" Foreground="#FF5F2323" FontSize="22" FontFamily="Malgun Gothic Semilight" FontWeight="Bold" Height="285"/>
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Клиенты" FontFamily="Malgun Gothic Semilight" FontSize="30" Foreground="#FF5F2323" Height="60">
+            <TabItem Name="ClientsTab" Background="#FFDCC3C3" Header="Клиенты" FontFamily="Malgun Gothic Semilight" FontSize="30" Foreground="#FF5F2323" Height="60">
                 <Grid Background="#FFDCC3C3" >
-                    <DataGrid Name="dataGridClient" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10,10.4" VerticalAlignment="Stretch"  Background="#FFE6E6D2"/>
-                    <Button Name="ButtonClientCreate" Content="Добавить" HorizontalAlignment="Left" Margin="239,29,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
+                    <DataGrid Name="dataGridClient" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,100,10,10.4" VerticalAlignment="Stretch" FontSize="21" Background="#FFE6E6D2"/>
+                    <Button Name="ButtonClientCreate" Command="{Binding AddCommand}" Content="Добавить" HorizontalAlignment="Left" Margin="239,29,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
                     <Button Name="ButtonClientUpDate" Content="Изменить" HorizontalAlignment="Left" Margin="394,29,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Недвижимость" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+            <TabItem Name="PropertyTab" Background="#FFDCC3C3" Header="Недвижимость" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
                 <Grid Background="#FFDCC3C3">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="221*"/>
-                        <RowDefinition Height="773*"/>
-                    </Grid.RowDefinitions>
 
-
-                    <DataGrid Name="dataGridProperty" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,138,10.4,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
+                    <DataGrid Name="dataGridProperty" ItemsSource="{Binding Property}" SelectedItem="{Binding SelectedProperty}" FontSize="13" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Margin="10,138,10.4,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
 
                     <Button Name="ButtonPropertyCreate" Content="Добавить" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
                     <Button Name="ButtonPropertyUpDate" Content="Изменить" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" RenderTransformOrigin="0.176,0.295"/>
@@ -66,9 +61,9 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Сделки" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+            <TabItem Name="DealsTab" Background="#FFDCC3C3" Header="Сделки" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
                 <Grid Background="#FFDCC3C3">
-                    <DataGrid Name="dataGridDeal" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"  Margin="10,100,10.2,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
+                    <DataGrid Name="dataGridDeal" ItemsSource="{Binding Deals}" SelectedItem="{Binding SelectedDeal}" HorizontalAlignment="Stretch" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" FontSize="14" Margin="10,100,10.2,10.4" VerticalAlignment="Stretch" Background="#FFE6E6D2"/>
                     <Button Name="ButtonDealCreate" Content="Сделка" HorizontalAlignment="Left" Margin="240,28,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
                     <Button Name="ButtonDealDelete" Content="Удалить" HorizontalAlignment="Left" Margin="395,28,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E"/>
                 </Grid>
