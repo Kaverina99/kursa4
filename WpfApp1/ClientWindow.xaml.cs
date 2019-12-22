@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace Agency
 {
     /// <summary>
@@ -19,9 +21,10 @@ namespace Agency
     /// </summary>
     public partial class ClientWindow : Window
     {
-        public ClientWindow()
+        public ClientWindow(ClientModel cl)
         {
             InitializeComponent();
+            DataContext = cl;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

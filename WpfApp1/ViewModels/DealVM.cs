@@ -47,8 +47,14 @@ namespace WpfApp1.ViewModels
                   (addCommand = new RelayCommand(obj =>
                   {
                       DealModel deal = new DealModel();
-                      Deals.Insert(0, deal);
-                      SelectedDeal = deal;
+
+                      DealWindow d = new DealWindow(deal);
+                      bool? res = d.ShowDialog();
+                      if (res != null && (bool)res)
+                      {
+                          Deals.Insert(0, deal);
+                          selectedDeal = deal;
+                      }
                   }));
             }
         }

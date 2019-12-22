@@ -5,36 +5,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Agency"
-        mc:Ignorable="d"
-        Title="Сделка" Height="450" Width="800">
+        mc:Ignorable="d" 
+        Background="#FFDCC3C3"
+        Title="Сделка" Height="507" Width="557" MinWidth="557" MinHeight="507" MaxWidth="557" MaxHeight="507">
     <Grid>
-        <DatePicker Name="DatePickerDlW" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="260"/>
-        <Label Content="Дата сделки" HorizontalAlignment="Left" Margin="46,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.987,0.561" Foreground="#FFBE0000" FontFamily="Italic"/>
-       
-        <Image Margin="524,10,9.6,195" Source="n1.jpg" Stretch="Fill"/>
-       
-        <Label Content="Форма оплаты:" HorizontalAlignment="Left" Margin="46,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <DatePicker Name="DatePickerDlW" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="260" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <Label Content="Дата сделки" HorizontalAlignment="Left" Margin="46,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.987,0.561" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" />
+
+        <Label Content="Форма оплаты:" HorizontalAlignment="Left" Margin="46,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <TextBox Name="TextBoxDlWFor" HorizontalAlignment="Left" Height="23" Margin="217,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
-        
-        <Label Content="Период выплаты:" HorizontalAlignment="Left" Margin="46,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+
+        <Label Content="Период выплаты:" HorizontalAlignment="Left" Margin="46,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <TextBox Name="TextBoxDlWPer" HorizontalAlignment="Left" Height="23" Margin="217,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="Ежемесячная выплата:" HorizontalAlignment="Left" Margin="46,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <Label Content="Ежемесячная выплата:" HorizontalAlignment="Left" Margin="46,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <TextBox Name="TextBoxDlWMo" HorizontalAlignment="Left" Height="23" Margin="217,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="ФИО продавца:" HorizontalAlignment="Left" Margin="46,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <Label Content="ФИО продавца:" HorizontalAlignment="Left" Margin="46,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <ComboBox Name="TextBoxDlWFIOPr" HorizontalAlignment="Left" Margin="217,236,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="ФИО покупателя:" HorizontalAlignment="Left" Margin="46,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <Label Content="ФИО покупателя:" HorizontalAlignment="Left" Margin="46,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <ComboBox Name="TextBoxDlWFIOPok" HorizontalAlignment="Left" Margin="217,278,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="ФИО Агента:" HorizontalAlignment="Left" Margin="46,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <Label Content="ФИО Агента:" HorizontalAlignment="Left" Margin="46,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <ComboBox Name="ComboBoxDlWAg" HorizontalAlignment="Left" Margin="217,322,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="Объект недвижимости:" HorizontalAlignment="Left" Margin="46,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" Foreground="#FFBE0000" FontFamily="Italic"/>
+        <Label Content="Объект недвижимости:" HorizontalAlignment="Left" Margin="46,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         <ComboBox Name="ComboBoxDlWFIOProp" HorizontalAlignment="Left" Margin="217,364,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Button x:Name="ButtonClWOK" Content="ОК" HorizontalAlignment="Left" Margin="576,256,0,0" VerticalAlignment="Top" Width="131" Height="50" FontSize="18" Foreground="#FFBE0505" RenderTransformOrigin="0.823,0.558" FontFamily="Italic" FontWeight="Bold"/>
-        <Button x:Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="576,333,0,0" VerticalAlignment="Top" Width="131" Height="50" FontSize="18" FontWeight="Bold" Foreground="#FFBE0505" RenderTransformOrigin="0.823,0.558" FontFamily="Italic"/>
+        <Button x:Name="ButtonClWOK" Content="ОК" HorizontalAlignment="Left" Margin="246,413,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558"  FontWeight="Bold"/>
+        <Button x:Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="377,413,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558" />
     </Grid>
 </Window>

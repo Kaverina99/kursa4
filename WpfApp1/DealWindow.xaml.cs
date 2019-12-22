@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,10 @@ namespace Agency
     /// </summary>
     public partial class DealWindow : Window
     {
-        public DealWindow()
+        public DealWindow(DealModel d)
         {
             InitializeComponent();
+            DataContext = d;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

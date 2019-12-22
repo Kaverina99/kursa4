@@ -6,41 +6,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d"
-        Title="Клиенты" Height="450" Width="800">
+        Background="#FFDCC3C3"
+        Title="Клиенты" Height="457" Width="577" MinWidth="577" MinHeight="457" MaxWidth="577" MaxHeight="457">
     <Grid >
-        <Image Margin="497,31,9.6,230" Source="kl1.png" Stretch="Fill"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="451*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBox Name="TextBoxClWFIO" HorizontalAlignment="Left" Height="25" Margin="173,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="ФИО клиента: " HorizontalAlignment="Left" Margin="70,45,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWFIO" Text="{Binding Client_Name }" HorizontalAlignment="Left" Height="25" Margin="53.2,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="ФИО клиента: " HorizontalAlignment="Left" Margin="70,45,0,0"  VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
 
-        <TextBox Name="TextBoxClWPas" HorizontalAlignment="Left" Height="25" Margin="173,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Паспорт: " HorizontalAlignment="Left" Margin="70,94,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWPas" Text="{Binding Client_Passport}" HorizontalAlignment="Left" Height="25" Margin="53.2,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="Паспорт: " HorizontalAlignment="Left" Margin="70,94,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
 
-        <TextBox Name="TextBoxClWINN" HorizontalAlignment="Left" Height="25" Margin="173,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="ИНН: " HorizontalAlignment="Left" Margin="70,143,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWINN" Text="{Binding Client_INN}" HorizontalAlignment="Left" Height="25" Margin="53.2,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="ИНН: " HorizontalAlignment="Left" Margin="70,143,0,0"  VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
 
-        <TextBox Name="TextBoxClWBIK" HorizontalAlignment="Left" Height="25" Margin="173,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="БИК: " HorizontalAlignment="Left" Margin="70,190,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWBIK" Text="{Binding Client_BIK}" HorizontalAlignment="Left" Height="25" Margin="53.2,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="БИК: " HorizontalAlignment="Left" Margin="70,190,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
 
-        <TextBox Name="TextBoxClWSNILS" HorizontalAlignment="Left" Height="25" Margin="173,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="СНИЛС: " HorizontalAlignment="Left" Margin="70,241,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWSNILS" Text="{Binding Client_SNILS}" HorizontalAlignment="Left" Height="25" Margin="53.2,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="СНИЛС: " HorizontalAlignment="Left" Margin="70,241,0,0"  VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
 
-        <TextBox Name="TextBoxClWPhone" HorizontalAlignment="Left" Height="25" Margin="173,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324"/>
-        <Label Content="Телефон: " HorizontalAlignment="Left" Margin="70,293,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
+        <TextBox Name="TextBoxClWPhone" Text="{Binding Client_Phone}" HorizontalAlignment="Left" Height="25" Margin="53.2,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.Column="1"/>
+        <Label Content="Телефон: " HorizontalAlignment="Left" Margin="70,293,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
 
-        <ComboBox Name="ComboBoxClWTarget"  HorizontalAlignment="Left" Height="27" Margin="172,341,0,0" VerticalAlignment="Top" Width="324" RenderTransformOrigin="0.5,0.5">
-            <ComboBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.011"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ComboBox.RenderTransform>
-        </ComboBox>
-        
-        <Label Content="Цель: " HorizontalAlignment="Left" Margin="70,342,0,0" FontFamily="Italic" VerticalAlignment="Top" Foreground="#FFBE0505"/>
-        <Button Name="ButtonClWOK" Content="ОК" HorizontalAlignment="Left" Margin="577,241,0,0" VerticalAlignment="Top" Width="131" Height="50" FontSize="18" Foreground="#FFBE0505" RenderTransformOrigin="0.823,0.558" FontFamily="Italic" FontWeight="Bold"/>
-        <Button Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="577,318,0,0" VerticalAlignment="Top" Width="131" Height="50" FontSize="18" FontWeight="Bold" Foreground="#FFBE0505" RenderTransformOrigin="0.823,0.558" FontFamily="Italic"/>
+        <Button Name="ButtonClWOK" Content="ОК" HorizontalAlignment="Left" Margin="140.2,348,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558" FontWeight="Bold" Grid.Column="1"/>
+        <Button Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="270.2,348,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="18" FontWeight="Bold"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558" Grid.Column="1" />
     </Grid>
 </Window>

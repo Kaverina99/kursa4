@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL;
 
 namespace Agency
 {
@@ -19,9 +20,10 @@ namespace Agency
     /// </summary>
     public partial class PropertyWindow : Window
     {
-        public PropertyWindow()
+        public PropertyWindow(PropertyModel pr)
         {
             InitializeComponent();
+            DataContext = pr;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

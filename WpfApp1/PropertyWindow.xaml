@@ -6,54 +6,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d"
+        Background="#FFDCC3C3"
         Title="Объект недвижимости" Height="450" Width="800">
     <Grid>
         <Grid>
-            <Label Content="Стоимость:" HorizontalAlignment="Left" Margin="28,38,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Стоимость:" HorizontalAlignment="Left" Margin="28,32,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWCost" HorizontalAlignment="Left" Height="23" Margin="132,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Адрес:" HorizontalAlignment="Left" Margin="28,82,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Адрес:" HorizontalAlignment="Left" Margin="28,76,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWAdr" HorizontalAlignment="Left" Height="23" Margin="132,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Метраж:" HorizontalAlignment="Left" Margin="28,131,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Метраж:" HorizontalAlignment="Left" Margin="28,125,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWMetrea" HorizontalAlignment="Left" Height="23" Margin="132,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Этаж:" HorizontalAlignment="Left" Margin="28,176,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Этаж:" HorizontalAlignment="Left" Margin="28,170,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWFloor" HorizontalAlignment="Left" Height="23" Margin="132,176,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Участок:" HorizontalAlignment="Left" Margin="28,223,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Участок:" HorizontalAlignment="Left" Margin="28,217,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWPlot" HorizontalAlignment="Left" Height="23" Margin="132,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Комнат:" HorizontalAlignment="Left" Margin="28,271,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Комнат:" HorizontalAlignment="Left" Margin="28,265,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <TextBox Name="TextBoxPropWRoom" HorizontalAlignment="Left" Height="23" Margin="132,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="ФИО агента:" HorizontalAlignment="Left" Margin="28,315,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="ФИО агента:" HorizontalAlignment="Left" Margin="28,309,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWFioAg" HorizontalAlignment="Left" Margin="132,315,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="ФИО клиента:" HorizontalAlignment="Left" Margin="28,359,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="ФИО клиента:" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWFioCl" HorizontalAlignment="Left" Margin="132,359,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Вид недвиж:" HorizontalAlignment="Left" Margin="410,41,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Вид недвиж:" HorizontalAlignment="Left" Margin="409,35,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWType" HorizontalAlignment="Left" Margin="500,38,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Цель:" HorizontalAlignment="Left" Margin="410,91,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Цель:" HorizontalAlignment="Left" Margin="409,85,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWTarget" HorizontalAlignment="Left" Margin="500,88,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Район:" HorizontalAlignment="Left" Margin="410,135,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Район:" HorizontalAlignment="Left" Margin="409,129,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWRaion" HorizontalAlignment="Left" Margin="500,132,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Санузел:" HorizontalAlignment="Left" Margin="410,183,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Санузел:" HorizontalAlignment="Left" Margin="409,177,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWLay" HorizontalAlignment="Left" Margin="500,180,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Материал:" HorizontalAlignment="Left" Margin="410,227,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Материал:" HorizontalAlignment="Left" Margin="409,221,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox Name="ComboBoxPropWMater" HorizontalAlignment="Left" Margin="500,224,0,0" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="Планировка:" HorizontalAlignment="Left" Margin="410,274,0,0" VerticalAlignment="Top" FontFamily="Italic" Foreground="#FFBE0505"/>
+            <Label Content="Планировка:" HorizontalAlignment="Left" Margin="409,268,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
             <ComboBox  Name="ComboBoxPropWPlan" HorizontalAlignment="Left" Margin="500,271,0,0" VerticalAlignment="Top" Width="260"/>
-
-            <Image Margin="410,298,152.6,1" Source="images.jpg" Stretch="Fill"/>
-            <Button Name="ButtonPropWOK" Content="ОК" HorizontalAlignment="Left" Margin="670,316,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFBE0505" FontFamily="Italic"/>
-            <Button Name="ButtonPropWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="670,370,0,0" VerticalAlignment="Top" Width="90" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFBE0505" FontFamily="Italic"/>
+            <Button Name="ButtonPropWOK" Content="ОК" HorizontalAlignment="Left" Margin="500,341,0,0" VerticalAlignment="Top" Width="115" Height="40" FontSize="16" FontWeight="Bold" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+            <Button Name="ButtonPropWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="645,341,0,0" VerticalAlignment="Top" Width="115" Height="40" FontWeight="Bold" FontSize="16" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         </Grid>
 
     </Grid>

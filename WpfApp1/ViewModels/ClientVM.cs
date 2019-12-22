@@ -46,11 +46,15 @@ namespace WpfApp1.ViewModels
                 return addCommand ??
                   (addCommand = new RelayCommand(obj =>
                   {
-                      ClientWindow cl = new ClientWindow();
-                      cl.ShowDialog();
-                      //ClientModel client = new ClientModel();
-                      //Clients.Insert(0, client);
-                      //SelectedClient = client;
+                      ClientModel cliet = new ClientModel();
+
+                      ClientWindow cl = new ClientWindow(cliet);
+                      bool? res = cl.ShowDialog();
+                      if (res != null && (bool)res)
+                      {
+                          Clients.Insert(0, cliet);
+                          selectedClient = cliet;
+                      }
                   }));
             }
         }

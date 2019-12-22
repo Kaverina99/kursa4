@@ -68,10 +68,12 @@
     <Compile Include="DealWindow.xaml.cs">
       <DependentUpon>DealWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClientVModel.cs" />
     <Compile Include="PropertyWindow.xaml.cs">
       <DependentUpon>PropertyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\NewClientVM.cs" />
+    <Compile Include="ViewModels\NewDealVM.cs" />
+    <Compile Include="ViewModels\NewPropertyVM.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ClientVM.cs" />
     <Compile Include="ViewModels\DealVM.cs" />
@@ -135,15 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recources\orig.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recources\client.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recources\hand.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Recources\!.png" />
   </ItemGroup>
   <ItemGroup>
@@ -155,9 +148,6 @@
       <Project>{dfe860c3-16c7-4234-95cc-abe63e4ce27c}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recources\85109.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recources\h3.png" />

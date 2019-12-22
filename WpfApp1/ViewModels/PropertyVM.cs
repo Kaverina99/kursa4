@@ -46,9 +46,15 @@ namespace WpfApp1.ViewModels
                 return addCommand ??
                   (addCommand = new RelayCommand(obj =>
                   {
-                      PropertyModel property = new PropertyModel();
-                      Property.Insert(0, property);
-                      SelectedProperty = property;
+                      PropertyModel pr = new PropertyModel();
+
+                      PropertyWindow p = new PropertyWindow(pr);
+                      bool? res = p.ShowDialog();
+                      if (res != null && (bool)res)
+                      {
+                          Property.Insert(0, pr);
+                          selectedProperty = pr;
+                      }
                   }));
             }
         }
