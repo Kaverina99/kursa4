@@ -26,7 +26,9 @@ namespace WpfApp1
             ClientsTab.DataContext = new ClientVM();
             DealsTab.DataContext = new DealVM();
             PropertyTab.DataContext = new PropertyVM();
-
+            DocumentTab.DataContext = new DocumentVM();
+            OtchetAgencyTab.DataContext = new OtchetAgencyVM();
+            OtchetAgentTab.DataContext = new OtchetAgentVM();
         }
 
     }

@@ -12,13 +12,12 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            Deals = new HashSet<Deal>();
-            Deals1 = new HashSet<Deal>();
-            Properties = new HashSet<Property>();
+            Deal = new HashSet<Deal>();
+            Deal1 = new HashSet<Deal>();
+            Property = new HashSet<Property>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Client { get; set; }
 
         [Required]
@@ -43,12 +42,12 @@ namespace DAL
         public string Client_Phone { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deal> Deals { get; set; }
+        public virtual ICollection<Deal> Deal { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deal> Deals1 { get; set; }
+        public virtual ICollection<Deal> Deal1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Property> Properties { get; set; }
+        public virtual ICollection<Property> Property { get; set; }
     }
 }

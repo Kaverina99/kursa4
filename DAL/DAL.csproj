@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgencyDB.cs" />
+    <Compile Include="Entities\AgencyDB.cs" />
     <Compile Include="Entities\Agent.cs" />
     <Compile Include="Entities\Area.cs" />
     <Compile Include="Entities\Bathroom.cs" />
@@ -64,26 +64,10 @@
     <Compile Include="Entities\Deal.cs" />
     <Compile Include="Entities\Layout.cs" />
     <Compile Include="Entities\Material.cs" />
-    <Compile Include="Entities\_Otchets.cs" />
-    <Compile Include="Interfaces\IDbRepos.cs" />
-    <Compile Include="Interfaces\IOtchetsRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Property.cs" />
     <Compile Include="Entities\Target.cs" />
     <Compile Include="Entities\Type_of_Property.cs" />
-    <Compile Include="Repository\AgentRepositorySQL.cs" />
-    <Compile Include="Repository\AreaRepositorySQL.cs" />
-    <Compile Include="Repository\BathroomRepositorySQL.cs" />
-    <Compile Include="Repository\_DbReposSQL.cs" />
-    <Compile Include="Repository\_OtchetRepositorySQL.cs" />
-    <Compile Include="Repository\TypeRepositorySQL.cs" />
-    <Compile Include="Repository\ClientRepositorySQL.cs" />
-    <Compile Include="Repository\DealRepositorySQL.cs" />
-    <Compile Include="Repository\LayoutRepositorySQL.cs" />
-    <Compile Include="Repository\MaterialRepositorySQL.cs" />
-    <Compile Include="Repository\PropertyRepositorySQL.cs" />
-    <Compile Include="Repository\TargetRepositorySQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

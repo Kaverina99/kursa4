@@ -7,52 +7,50 @@
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d"
         Background="#FFDCC3C3"
-        Title="Объект недвижимости" Height="450" Width="800">
+        Title="Объект недвижимости" Height="410" Width="800">
     <Grid>
         <Grid>
             <Label Content="Стоимость:" HorizontalAlignment="Left" Margin="28,32,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWCost" HorizontalAlignment="Left" Height="23" Margin="132,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWCost" Text="{Binding prCost }" HorizontalAlignment="Left" Height="23" Margin="132,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Адрес:" HorizontalAlignment="Left" Margin="28,76,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWAdr" HorizontalAlignment="Left" Height="23" Margin="132,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWAdr" Text="{Binding prAddress }"  HorizontalAlignment="Left" Height="23" Margin="132,83,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Метраж:" HorizontalAlignment="Left" Margin="28,125,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWMetrea" HorizontalAlignment="Left" Height="23" Margin="132,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWMetrea" Text="{Binding prMetric_area }" HorizontalAlignment="Left" Height="23" Margin="132,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Этаж:" HorizontalAlignment="Left" Margin="28,170,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWFloor" HorizontalAlignment="Left" Height="23" Margin="132,176,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWFloor" Text="{Binding prFloor }" HorizontalAlignment="Left" Height="23" Margin="132,176,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Участок:" HorizontalAlignment="Left" Margin="28,217,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWPlot" HorizontalAlignment="Left" Height="23" Margin="132,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWPlot" Text="{Binding prPlot_size }" HorizontalAlignment="Left" Height="23" Margin="132,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Комнат:" HorizontalAlignment="Left" Margin="28,265,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <TextBox Name="TextBoxPropWRoom" HorizontalAlignment="Left" Height="23" Margin="132,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+            <TextBox Name="TextBoxPropWRoom" Text="{Binding prNumber_of_rooms }" HorizontalAlignment="Left" Height="23" Margin="132,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-            <Label Content="ФИО агента:" HorizontalAlignment="Left" Margin="28,309,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWFioAg" HorizontalAlignment="Left" Margin="132,315,0,0" VerticalAlignment="Top" Width="260"/>
-
-            <Label Content="ФИО клиента:" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWFioCl" HorizontalAlignment="Left" Margin="132,359,0,0" VerticalAlignment="Top" Width="260"/>
+            <Label Content="ФИО клиента:" HorizontalAlignment="Left" Margin="28,311,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
+            <ComboBox Name="ComboBoxPropWFioCl" ItemsSource="{Binding Cl}" SelectedItem ="{Binding SelectCl}" DisplayMemberPath="Client_Name"  HorizontalAlignment="Left" Margin="132,317,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Вид недвиж:" HorizontalAlignment="Left" Margin="409,35,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWType" HorizontalAlignment="Left" Margin="500,38,0,0" VerticalAlignment="Top" Width="260"/>
+            <ComboBox Name="ComboBoxPropWType" ItemsSource="{Binding Tip}" SelectedItem ="{Binding SelectTip}" DisplayMemberPath="TypeP_Name" HorizontalAlignment="Left" Margin="500,38,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Цель:" HorizontalAlignment="Left" Margin="409,85,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWTarget" HorizontalAlignment="Left" Margin="500,88,0,0" VerticalAlignment="Top" Width="260"/>
+            <ComboBox Name="ComboBoxPropWTarget" ItemsSource="{Binding Tar}" SelectedItem ="{Binding SelectTar}" DisplayMemberPath="Target_Name" HorizontalAlignment="Left" Margin="500,88,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Район:" HorizontalAlignment="Left" Margin="409,129,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWRaion" HorizontalAlignment="Left" Margin="500,132,0,0" VerticalAlignment="Top" Width="260"/>
+            <ComboBox Name="ComboBoxPropWRaion" ItemsSource="{Binding Ar}" SelectedItem ="{Binding SelectAr}" DisplayMemberPath="Area_Name" HorizontalAlignment="Left" Margin="500,132,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Санузел:" HorizontalAlignment="Left" Margin="409,177,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWLay" HorizontalAlignment="Left" Margin="500,180,0,0" VerticalAlignment="Top" Width="260"/>
+            <ComboBox Name="ComboBoxPropWBath" ItemsSource="{Binding Bat}" SelectedItem ="{Binding SelectBat}" DisplayMemberPath="Bathroom_Name" HorizontalAlignment="Left" Margin="500,180,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Материал:" HorizontalAlignment="Left" Margin="409,221,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox Name="ComboBoxPropWMater" HorizontalAlignment="Left" Margin="500,224,0,0" VerticalAlignment="Top" Width="260"/>
+            <ComboBox Name="ComboBoxPropWMater" ItemsSource="{Binding Mat}" SelectedItem ="{Binding SelectMat}" DisplayMemberPath="Material_Name" HorizontalAlignment="Left" Margin="500,224,0,0" VerticalAlignment="Top" Width="260"/>
 
             <Label Content="Планировка:" HorizontalAlignment="Left" Margin="409,268,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic Semilight" FontSize="14" Foreground="#FF5F2323"/>
-            <ComboBox  Name="ComboBoxPropWPlan" HorizontalAlignment="Left" Margin="500,271,0,0" VerticalAlignment="Top" Width="260"/>
-            <Button Name="ButtonPropWOK" Content="ОК" HorizontalAlignment="Left" Margin="500,341,0,0" VerticalAlignment="Top" Width="115" Height="40" FontSize="16" FontWeight="Bold" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-            <Button Name="ButtonPropWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="645,341,0,0" VerticalAlignment="Top" Width="115" Height="40" FontWeight="Bold" FontSize="16" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+            <ComboBox  Name="ComboBoxPropWPlan" ItemsSource="{Binding Lay}" SelectedItem ="{Binding SelectLay}" DisplayMemberPath="Layout_Name" HorizontalAlignment="Left" Margin="500,271,0,0" VerticalAlignment="Top" Width="260"/>
+
+            <Button Name="ButtonPropWOK" Command="{Binding AddCommand}"  Content="ОК" HorizontalAlignment="Left" Margin="500,317,0,0" VerticalAlignment="Top" Width="115" Height="40" FontSize="16" FontWeight="Bold" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+            <Button Name="ButtonPropWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="645,317,0,0" VerticalAlignment="Top" Width="115" Height="40" FontWeight="Bold" FontSize="16" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
         </Grid>
 
     </Grid>

@@ -7,33 +7,39 @@
         xmlns:local="clr-namespace:Agency"
         mc:Ignorable="d" 
         Background="#FFDCC3C3"
-        Title="Сделка" Height="507" Width="557" MinWidth="557" MinHeight="507" MaxWidth="557" MaxHeight="507">
+        Title="Сделка" Height="625" Width="557" MinWidth="557" MinHeight="625" MaxWidth="557" MaxHeight="625">
     <Grid>
-        <DatePicker Name="DatePickerDlW" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="260" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <DatePicker Name="DatePickerDlW" SelectedDate="{Binding dlDate }" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="260" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" />
         <Label Content="Дата сделки" HorizontalAlignment="Left" Margin="46,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.987,0.561" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" />
 
         <Label Content="Форма оплаты:" HorizontalAlignment="Left" Margin="46,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <TextBox Name="TextBoxDlWFor" HorizontalAlignment="Left" Height="23" Margin="217,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
+        <TextBox Name="TextBoxDlWFor" Text="{Binding dlFPayment }" HorizontalAlignment="Left" Height="23" Margin="217,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="260"/>
 
         <Label Content="Период выплаты:" HorizontalAlignment="Left" Margin="46,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <TextBox Name="TextBoxDlWPer" HorizontalAlignment="Left" Height="23" Margin="217,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+        <TextBox Name="TextBoxDlWPer" Text="{Binding dlPeriod }" HorizontalAlignment="Left" Height="23" Margin="217,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
         <Label Content="Ежемесячная выплата:" HorizontalAlignment="Left" Margin="46,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <TextBox Name="TextBoxDlWMo" HorizontalAlignment="Left" Height="23" Margin="217,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+        <TextBox Name="TextBoxDlWMo" Text="{Binding dlMPayout }" HorizontalAlignment="Left" Height="23" Margin="217,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="ФИО продавца:" HorizontalAlignment="Left" Margin="46,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <ComboBox Name="TextBoxDlWFIOPr" HorizontalAlignment="Left" Margin="217,236,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="ФИО продавца:" HorizontalAlignment="Left" Margin="46,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <ComboBox Name="ComboBoxDlWFIOPr" ItemsSource="{Binding Cli1}" SelectedItem ="{Binding SelectCli1}" DisplayMemberPath="Client_Name" HorizontalAlignment="Left" Margin="217,343,0,0" VerticalAlignment="Top" Width="260" />
 
-        <Label Content="ФИО покупателя:" HorizontalAlignment="Left" Margin="46,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <ComboBox Name="TextBoxDlWFIOPok" HorizontalAlignment="Left" Margin="217,278,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="ФИО покупателя:" HorizontalAlignment="Left" Margin="46,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <ComboBox Name="ComboBoxDlWFIOPok" ItemsSource="{Binding Cli2}" SelectedItem ="{Binding SelectCli2}" DisplayMemberPath="Client_Name" HorizontalAlignment="Left" Margin="217,385,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="ФИО Агента:" HorizontalAlignment="Left" Margin="46,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <ComboBox Name="ComboBoxDlWAg" HorizontalAlignment="Left" Margin="217,322,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="ФИО Агента:" HorizontalAlignment="Left" Margin="46,429,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <ComboBox Name="ComboBoxDlWAg" ItemsSource="{Binding Age}" SelectedItem ="{Binding SelectAge}" DisplayMemberPath="Agent_Name" HorizontalAlignment="Left" Margin="217,429,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Label Content="Объект недвижимости:" HorizontalAlignment="Left" Margin="46,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
-        <ComboBox Name="ComboBoxDlWFIOProp" HorizontalAlignment="Left" Margin="217,364,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="Объект недвижимости:" HorizontalAlignment="Left" Margin="46,471,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <ComboBox Name="ComboBoxDlWFIOProp" ItemsSource="{Binding Pro}" SelectedItem ="{Binding SelectPro}" DisplayMemberPath="Pr_Address" HorizontalAlignment="Left" Margin="217,471,0,0" VerticalAlignment="Top" Width="260"/>
 
-        <Button x:Name="ButtonClWOK" Content="ОК" HorizontalAlignment="Left" Margin="246,413,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558"  FontWeight="Bold"/>
-        <Button x:Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="377,413,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558" />
+        <Button x:Name="ButtonClWOK" Command="{Binding AddCommand}"  Content="ОК" HorizontalAlignment="Left" Margin="246,520,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558"  FontWeight="Bold"/>
+        <Button x:Name="ButtonClWCanel" Content="Отмена" HorizontalAlignment="Left" Margin="377,520,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="18"  Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight" RenderTransformOrigin="0.823,0.558" />
+       
+        <Label Content="Полная сумма:" HorizontalAlignment="Left" Margin="46,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <TextBox Name="TextBoxDlWTotal" Text="{Binding dlTotalCost }" HorizontalAlignment="Left" Height="23" Margin="217,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
+       
+        <Label Content="Доля агента:" HorizontalAlignment="Left" Margin="46,288,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.697,0.596" FontSize="14" Foreground="#FF5F2323" FontFamily="Malgun Gothic Semilight"/>
+        <TextBox Name="TextBoxDlWAge" Text="{Binding dlAgentShareCost }" HorizontalAlignment="Left" Height="23" Margin="217,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260"/>
     </Grid>
 </Window>

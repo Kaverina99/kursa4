@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BLL;
+using DAL;
+using WpfApp1.ViewsModels;
 
 namespace Agency
 {
@@ -20,22 +21,10 @@ namespace Agency
     /// </summary>
     public partial class PropertyWindow : Window
     {
-        public PropertyWindow(PropertyModel pr)
+        public PropertyWindow(AgencyDB context)
         {
             InitializeComponent();
-            DataContext = pr;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
+            DataContext = new NewPropertyVM(context, this);
         }
     }
 }

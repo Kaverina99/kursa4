@@ -12,7 +12,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Agent()
         {
-            Deals = new HashSet<Deal>();
+            Deal = new HashSet<Deal>();
         }
 
         [Key]
@@ -32,6 +32,6 @@ namespace DAL
         public string Agent_Position { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deal> Deals { get; set; }
+        public virtual ICollection<Deal> Deal { get; set; }
     }
 }

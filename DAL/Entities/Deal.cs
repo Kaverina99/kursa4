@@ -10,7 +10,6 @@ namespace DAL
     public partial class Deal
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Deal { get; set; }
 
         [Column(TypeName = "date")]
@@ -30,7 +29,7 @@ namespace DAL
 
         public int Deal_Seller_FK { get; set; }
 
-        public int? Deal_Customer_FK { get; set; }
+        public int Deal_Customer_FK { get; set; }
 
         public int Deal_Property_FK { get; set; }
 

@@ -1,4 +1,4 @@
-﻿using BLL;
+﻿using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.ViewsModels;
 
 namespace Agency
 {
@@ -20,22 +21,12 @@ namespace Agency
     /// </summary>
     public partial class DealWindow : Window
     {
-        public DealWindow(DealModel d)
+        public DealWindow(AgencyDB context)
         {
             InitializeComponent();
-            DataContext = d;
+            DataContext = new NewDealVM(context, this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
+       
     }
 }

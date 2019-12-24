@@ -1,4 +1,4 @@
-﻿using BLL;
+﻿using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using WpfApp1.ViewModels;
+using WpfApp1.ViewsModels;
 
 namespace Agency
 {
@@ -21,22 +22,16 @@ namespace Agency
     /// </summary>
     public partial class ClientWindow : Window
     {
-        public ClientWindow(ClientModel cl)
+        public ClientWindow(AgencyDB context)
         {
             InitializeComponent();
-            DataContext = cl;
+            DataContext = new NewClientVM(context, this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public ClientWindow(AgencyDB context, Client cli )
         {
-            this.Close();
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
+            InitializeComponent();
+            DataContext = new NewClientVM(context, this, cli);
         }
     }
 }

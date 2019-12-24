@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Агентство недвижимости (REA)" Height="670" Width="1000" MinWidth="1000" MinHeight="650">
+        Title="Агентство недвижимости (REA)" Height="670" Width="1000" MinWidth="1000" MinHeight="670">
     <Grid>
         <TabControl Name="TabControl" Background="#FFDCC3C3" TabStripPlacement="Left" Margin="0" >
 
@@ -43,7 +43,17 @@
                         <RowDefinition Height="108*"/>
                     </Grid.RowDefinitions>
 
-                    <DataGrid Name="dataGridClient" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}" FontSize="12" Background="#FFE6E6D2" Grid.Row="1"/>
+                    <DataGrid Name="dataGridClient" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="12" Background="#FFE6E6D2"   Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id_Client}"/>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding Client_Name}"/>
+                            <DataGridTextColumn Header="Паспорт" Binding="{Binding Client_Passport}"/>
+                            <DataGridTextColumn Header="ИНН" Binding="{Binding Client_INN}"/>
+                            <DataGridTextColumn Header="БИК" Binding="{Binding Client_BIK}"/>
+                            <DataGridTextColumn Header="СНИЛС" Binding="{Binding Client_SNILS}"/>
+                            <DataGridTextColumn Header="Телефон" Binding="{Binding Client_Phone}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
@@ -54,7 +64,7 @@
                             <ColumnDefinition Width="265*"/>
                         </Grid.ColumnDefinitions>
                         <Button Name="ButtonClientCreate" Command="{Binding AddCommand}" Content="Добавить" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="1"/>
-                        <Button Name="ButtonClientUpDate" Content="Изменить" VerticalAlignment="Center"  Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="3"/>
+                        <Button Name="ButtonClientUpDate" Command="{Binding UpDateCommand}" Content="Изменить" VerticalAlignment="Center"  Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="3"/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -66,9 +76,27 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="1">
-                        <DataGrid Name="dataGridProperty" ItemsSource="{Binding Property}" SelectedItem="{Binding SelectedProperty}" FontSize="12" Background="#FFE6E6D2" />
-                    </Grid>
+                    <DataGrid Name="dataGridProperty" ItemsSource="{Binding Propertys}" SelectedItem="{Binding SelectedProperty}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  FontSize="12" Background="#FFE6E6D2" Grid.Row="1">
+                    <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id_Property}"/>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding Pr_Cost}"/>
+                            <DataGridTextColumn Header="Адрес" Binding="{Binding Pr_Address}"/>
+                            <DataGridTextColumn Header="Метражность" Binding="{Binding Pr_Metric_area}"/>
+                            <DataGridTextColumn Header="Этажность" Binding="{Binding Pr_Floor}"/>
+                            <DataGridTextColumn Header="Участок" Binding="{Binding Pr_Plot_size}"/>
+                            <DataGridTextColumn Header="Комнаты" Binding="{Binding Pr_Number_of_rooms}"/>
+
+
+                            <DataGridTextColumn Width="*" Header="Клиент" Binding="{Binding Client.Client_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Вид недвижимости" Binding="{Binding Type_of_Property.TypeP_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Цель" Binding="{Binding Target.Target_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Район" Binding="{Binding Area.Area_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Сан. узел" Binding="{Binding Bathroom.Bathroom_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Планировка" Binding="{Binding Layout.Layout_Name}"/>
+                            <DataGridTextColumn Width="*" Header="Материал" Binding="{Binding Material.Material_Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
 
                     <Grid Grid.Row="0">
                         <Grid.RowDefinitions>
@@ -102,10 +130,10 @@
                             </Grid.RowDefinitions>
 
                             <Label Content="Вид недвижимости:"  VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" Grid.Column="0" />
-                            <ComboBox Name="ComboBoxPropertyType"  VerticalAlignment="Center"  Height="35" Grid.Row="1" Grid.Column="0" />
+                            <ComboBox Name="ComboBoxPropertyType" ItemsSource="{Binding Tip}" SelectedItem ="{Binding SelectTip}" DisplayMemberPath="TypeP_Name" FontSize="14" VerticalAlignment="Center"  Height="35" Grid.Row="1" Grid.Column="0" />
 
                             <Label Content="Цель:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" Grid.Column="2" />
-                            <ComboBox Name="ComboBoxPropertyTarget" VerticalAlignment="Center" Height="35" Grid.Row="1" Grid.Column="2"/>
+                            <ComboBox Name="ComboBoxPropertyTarget" ItemsSource="{Binding Tar}" SelectedItem ="{Binding SelectTar}" DisplayMemberPath="Target_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Row="1" Grid.Column="2"/>
                         </Grid>
 
                         <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Margin="0.4,0.4,8,-0.2">
@@ -118,7 +146,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Content="Район:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Height="30" Grid.Column="0" />
-                            <ComboBox Name="ComboBoxPropertyRaion" VerticalAlignment="Center" Height="35" Grid.Column="2" />
+                            <ComboBox Name="ComboBoxPropertyRaion" ItemsSource="{Binding Ar}" SelectedItem ="{Binding SelectAr}" DisplayMemberPath="Area_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Column="2" />
                             <Label Content="Сан. узел:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Height="29" Grid.Column="4" />
                         </Grid>
 
@@ -129,10 +157,10 @@
                             </Grid.RowDefinitions>
 
                             <Label Content="Планировка:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" />
-                            <ComboBox Name="ComboBoxPropertyPlan" VerticalAlignment="Center" Height="35" Grid.Row="1"/>
+                            <ComboBox Name="ComboBoxPropertyPlan" ItemsSource="{Binding Lay}" SelectedItem ="{Binding SelectLay}" DisplayMemberPath="Layout_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Row="1"/>
                         </Grid>
 
-                        <ComboBox Name="ComboBoxPropertyLay" VerticalAlignment="Center"  Height="35" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Margin="1,10.4,6.4,9.8"/>
+                        <ComboBox Name="ComboBoxPropertyLay" ItemsSource="{Binding Bat}" SelectedItem ="{Binding SelectBat}" DisplayMemberPath="Bathroom_Name" FontSize="14" VerticalAlignment="Center"  Height="35" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Margin="1,10.4,6.4,9.8"/>
 
                         <Grid Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" Margin="6.8,0.4,0.2,-0.2">
                             <Grid.ColumnDefinitions>
@@ -149,7 +177,7 @@
                                 <RowDefinition Height="43*"/>
                             </Grid.RowDefinitions>
                             <Label Content="Материал:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0"  />
-                            <ComboBox Name="ComboBoxPropertyMater" VerticalAlignment="Center" Height="35" Grid.Row="1"/>
+                            <ComboBox ItemsSource="{Binding Mat}" SelectedItem ="{Binding SelectMat}" DisplayMemberPath="Material_Name" FontSize="14"  Name="ComboBoxPropertyMater" VerticalAlignment="Center" Height="35" Grid.Row="1"/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -162,8 +190,24 @@
                         <RowDefinition Height="108*"/>
                     </Grid.RowDefinitions>
 
-                    <DataGrid Name="dataGridDeal" ItemsSource="{Binding Deals}" SelectedItem="{Binding SelectedDeal}" FontSize="12" Background="#FFE6E6D2" Grid.Row="1"/>
+                    <DataGrid Name="dataGridDeal" ItemsSource="{Binding Deals}" SelectedItem="{Binding SelectedDeal}"  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  FontSize="12" Background="#FFE6E6D2" Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id_Deal}"/>
+                            <DataGridTextColumn Header="Дата заключения" Binding="{Binding Deal_Date, StringFormat=dd.MM.yyyy}"/>
+                            <DataGridTextColumn Header="Форма оплаты" Binding="{Binding Deal_Form_of_Payment}"/>
+                            <DataGridTextColumn Header="Рассрочки" Binding="{Binding Deal_Mortgage_Period}"/>
+                            <DataGridTextColumn Header="Платеж" Binding="{Binding Deal_Monthly_Payout}"/>
+                            <DataGridTextColumn Header="Общая сумма" Binding="{Binding Deal_Total_Cost}"/>
 
+                            <DataGridTextColumn Header="Продавец" Binding="{Binding Client.Client_Name}"/>
+                            <DataGridTextColumn Header="Покупатель" Binding="{Binding Client.Client_Name}"/>
+                            <DataGridTextColumn Header="Недвижимость" Binding="{Binding Property.Pr_Address}"/>
+                            <DataGridTextColumn Header="Агент" Binding="{Binding Agent.Agent_Name}"/>
+
+                            <DataGridTextColumn Header="Доля агента" Binding="{Binding Deal_AgentShare_Cost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="250*"/>
@@ -172,13 +216,13 @@
                             <ColumnDefinition Width="100*"/>
                             <ColumnDefinition Width="265*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Name="ButtonDealCreate" Content="Сделка" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="1"/>
+                        <Button Name="ButtonDealCreate" Command="{Binding AddCommand}" Content="Сделка" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="1"/>
                         <Button Name="ButtonDealDelete" Content="Удалить" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="3"/>
                     </Grid>
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Договора" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
+            <TabItem Name="DocumentTab" Background="#FFDCC3C3" Header="Договора" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323" Height="60">
                 <Grid Background="#FFDCC3C3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="19*"/>
@@ -196,7 +240,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Адрес недвижимости&#xD;&#xA;из сделки:" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Grid.Column="0"/>
-                        <ComboBox Name="ComboBoxProperty" VerticalAlignment="Center" Height="50" Grid.Column="2"/>
+                        <ComboBox Name="ComboBoxProperty" ItemsSource="{Binding Prop}" SelectedItem ="{Binding SelectProp}" DisplayMemberPath="Pr_Address" FontSize="14" VerticalAlignment="Center" Height="50" Grid.Column="2"/>
 
                         <Button Name="ButtonDocumentSave" Content="Создать и сохранить &#xD;&#xA;            договор" VerticalAlignment="Center" Height="60" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="4"/>
                     </Grid>
@@ -205,15 +249,24 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Отчет об&#xD;&#xA;агентстве" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
+            <TabItem Name="OtchetAgencyTab" Background="#FFDCC3C3" Header="Отчет об&#xD;&#xA;агентстве" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
                 <Grid Background="#FFDCC3C3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="19*"/>
                         <RowDefinition Height="108*"/>
                     </Grid.RowDefinitions>
 
-                    <DataGrid x:Name="dataGridOtchet1" Background="#FFE6E6D2" Grid.Row="1"/>
-
+                    <DataGrid x:Name="dataGridOtchet1" Background="#FFE6E6D2" Grid.Row="1" FontSize="14" ItemsSource="{Binding otchet1s}"  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id_Deal}"/>
+                            <DataGridTextColumn Header="Дата сделки" Binding="{Binding Deal_Date, StringFormat=dd.MM.yyyy}"/>
+                            <DataGridTextColumn Header="Недвижимость" Binding="{Binding Pr_Address}"/>
+                            <DataGridTextColumn Header="ФИО Клиента" Binding="{Binding Client_Name}"/>
+                            <DataGridTextColumn Header="ФИО Агента" Binding="{Binding Agent_Name}"/>
+                            <DataGridTextColumn Header="Общая сумма сделки" Binding="{Binding Deal_Total_Cost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="31*"/>
@@ -227,24 +280,34 @@
                             <ColumnDefinition Width="41*"/>
                         </Grid.ColumnDefinitions>
 
-                        <DatePicker Height="35" FontSize="18" Grid.Column="2"/>
+                        <DatePicker Name="DatePicker1" SelectedDate="{Binding datePicker1}" Height="35" FontSize="18" Grid.Column="2"/>
                         <Label Content="С:" Height="35" FontSize="18" Grid.Column="1"/>
-                        <DatePicker Height="35" FontSize="18" Grid.Column="5"/>
+                        <DatePicker Name="DatePicker2" SelectedDate="{Binding datePicker2}" Height="35" FontSize="18" Grid.Column="5"/>
                         <Label Content="ПО:" Height="35" FontSize="18" Grid.Column="4"/>
-                        <Button Name="ButtonOtchet1OK" Content="ОК" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="7" />
+                        <Button Name="ButtonOtchet1OK" Content="ОК" Command="{Binding Otchet1Command}" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="7" />
                     </Grid>
                 </Grid>
             </TabItem>
 
-            <TabItem Background="#FFDCC3C3" Header="Отчет по&#xD;&#xA;агентам" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
+            <TabItem Name="OtchetAgentTab" Background="#FFDCC3C3" Header="Отчет по&#xD;&#xA;агентам" FontFamily="Malgun Gothic Semilight" FontSize="30" FontWeight="Bold" Foreground="#FF5F2323">
                 <Grid Background="#FFDCC3C3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="19*"/>
                         <RowDefinition Height="108*"/>
                     </Grid.RowDefinitions>
 
-                    <DataGrid x:Name="dataGridOtchet2" Background="#FFE6E6D2" Grid.Row="1"/>
-
+                    <DataGrid x:Name="dataGridOtchet2" Background="#FFE6E6D2" Grid.Row="1" FontSize="14" ItemsSource="{Binding otchet2s}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id_Deal}"/>
+                            <DataGridTextColumn Header="Дата сделки" Binding="{Binding Deal_Date, StringFormat=dd.MM.yyyy}"/>
+                            <DataGridTextColumn Header="Недвижимость" Binding="{Binding Pr_Address}"/>
+                            <DataGridTextColumn Header="Телефон Клиента" Binding="{Binding Client_Phone}"/>
+                            <DataGridTextColumn Header="ФИО Клиента" Binding="{Binding Client_Name}"/>
+                            <DataGridTextColumn Header="Общая сумма сделки" Binding="{Binding Deal_Total_Cost}"/>
+                            <DataGridTextColumn Header="Для агента от сделки" Binding="{Binding Deal_AgentShare_Cost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="16*"/>
@@ -271,8 +334,8 @@
                                 <RowDefinition Height="48*"/>
                                 <RowDefinition Height="47*"/>
                             </Grid.RowDefinitions>
-                            <DatePicker Name="DateAgent1" VerticalAlignment="Center" Height="35" FontSize="18" Grid.Row="0"/>
-                            <DatePicker Name="DateAgent2" VerticalAlignment="Center" Height="35" FontSize="18" Grid.Row="1"/>
+                            <DatePicker Name="DateAgent1" SelectedDate="{Binding dateAgent1}" VerticalAlignment="Center" Height="35" FontSize="18" Grid.Row="0"/>
+                            <DatePicker Name="DateAgent2" SelectedDate="{Binding dateAgent2}" VerticalAlignment="Center" Height="35" FontSize="18" Grid.Row="1"/>
                         </Grid>
 
                         <Grid Grid.Column="4">
@@ -280,10 +343,10 @@
                                 <RowDefinition Height="48*"/>
                                 <RowDefinition Height="47*"/>
                             </Grid.RowDefinitions>
-                            <ComboBox Name="ComboBoxClientAg" VerticalAlignment="Center" Height="40" Grid.Row="1"/>
+                            <ComboBox Name="ComboBoxAgName" ItemsSource="{Binding Agg}" SelectedItem ="{Binding SelectAgg}" SelectedIndex="{Binding comboBoxAgName}" DisplayMemberPath="Agent_Name" FontSize="14" VerticalAlignment="Center" Height="40" Grid.Row="1"/>
                             <Label Content="ФИО Агента:" VerticalAlignment="Bottom" Height="35" FontSize="18" Grid.Row="0"/>
                         </Grid>
-                        <Button Name="ButtonOtchet2OK" Content="ОК" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="6"/>
+                        <Button Name="ButtonOtchet2OK"  Command="{Binding Otchet2Command}"  Content="ОК" VerticalAlignment="Center" Height="40" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="6"/>
                     </Grid>
                 </Grid>
             </TabItem>

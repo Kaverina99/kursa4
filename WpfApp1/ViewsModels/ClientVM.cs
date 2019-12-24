@@ -6,20 +6,18 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using BLL;
-using BLL.Models;
-using DAL.Interfaces;
+using DAL;
 using Agency;
+using System.Windows.Forms;
 
 namespace WpfApp1.ViewModels
 {
     public class ClientVM : INotifyPropertyChanged
     {
+        private Client selectedClient;
 
-        private ClientModel selectedClient;
-
-        public ObservableCollection<ClientModel> Clients { get; set; }
-        public ClientModel SelectedClient
+        public ObservableCollection<Client> Clients { get; set; }
+        public Client SelectedClient
         {
             get { return selectedClient; }
             set
@@ -46,46 +44,52 @@ namespace WpfApp1.ViewModels
                 return addCommand ??
                   (addCommand = new RelayCommand(obj =>
                   {
-                      ClientModel cliet = new ClientModel();
+                      Client cliet = new Client();
 
-                      ClientWindow cl = new ClientWindow(cliet);
+                      ClientWindow cl = new ClientWindow(ClassWorkDB);
                       bool? res = cl.ShowDialog();
-                      if (res != null && (bool)res)
+
+                      Clients.Clear();
+                      foreach (Client client in ClassWorkDB.Client)
                       {
-                          Clients.Insert(0, cliet);
-                          selectedClient = cliet;
+                          Clients.Add(client);
                       }
+                      selectedClient = cliet;
+
                   }));
             }
         }
         // команда удаления
-        private RelayCommand removeCommand;
-        public RelayCommand RemoveCommand
+        private RelayCommand upDateCommand;
+        public RelayCommand UpDateCommand
         {
             get
             {
-                return removeCommand ??
-                  (removeCommand = new RelayCommand(obj =>
+                return upDateCommand ??
+                  (upDateCommand = new RelayCommand(obj =>
                   {
-                      ClientModel client = obj as ClientModel;
-                      if (client != null)
+                      Client cliet = new Client();
+
+                      ClientWindow cl = new ClientWindow(ClassWorkDB, SelectedClient);
+                      bool? res = cl.ShowDialog();
+
+                      Clients.Clear();
+                      foreach (Client client in ClassWorkDB.Client)
                       {
-                          Clients.Remove(client);
+                          Clients.Add(client);
                       }
-                  },
-                 //условие, при котором будет доступна команда
-                 (obj) => (Clients.Count > 0 && selectedClient != null)));
+                      selectedClient = cliet;
+
+                  }));
             }
         }
 
+        AgencyDB ClassWorkDB;
 
         public ClientVM()
         {
-            DBDataOperation ClassWorkDB = new DBDataOperation();
-            Clients = new ObservableCollection<ClientModel>(ClassWorkDB.GetAllClients());
-
-
+            ClassWorkDB = new AgencyDB();
+            Clients = new ObservableCollection<Client>(ClassWorkDB.Client.ToList());
         }
-
     }
 }

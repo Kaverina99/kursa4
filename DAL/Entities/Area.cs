@@ -7,12 +7,12 @@ namespace DAL
     using System.Data.Entity.Spatial;
 
     [Table("Area")]
-    public partial class Area
+    public partial class Area //נאימם
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Area()
         {
-            Properties = new HashSet<Property>();
+            Property = new HashSet<Property>();
         }
 
         [Key]
@@ -24,6 +24,6 @@ namespace DAL
         public string Area_Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Property> Properties { get; set; }
+        public virtual ICollection<Property> Property { get; set; }
     }
 }

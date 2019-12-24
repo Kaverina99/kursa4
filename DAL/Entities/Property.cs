@@ -12,11 +12,10 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Property()
         {
-            Deals = new HashSet<Deal>();
+            Deal = new HashSet<Deal>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Property { get; set; }
 
         public decimal Pr_Cost { get; set; }
@@ -55,7 +54,7 @@ namespace DAL
         public virtual Client Client { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deal> Deals { get; set; }
+        public virtual ICollection<Deal> Deal { get; set; }
 
         public virtual Layout Layout { get; set; }
 
