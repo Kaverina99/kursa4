@@ -16,8 +16,11 @@ namespace WpfApp1.ViewsModels
     {
         AgencyDB db;
         PropertyWindow win;
+        bool add;
+        Property property;
         public NewPropertyVM(AgencyDB context, PropertyWindow w)
         {
+            add = true;
             win = w;
             db = context;
             Cl = new ObservableCollection<Client>(db.Client);
@@ -28,6 +31,28 @@ namespace WpfApp1.ViewsModels
             Lay = new ObservableCollection<Layout>(db.Layout);
             Mat = new ObservableCollection<Material>(db.Material);
         }
+        public NewPropertyVM(AgencyDB context, PropertyWindow w, Property prop)
+        {
+            add = false;
+            win = w;
+            db = context;
+            property = prop;
+
+            Cl = new ObservableCollection<Client>(db.Client);
+            Tip = new ObservableCollection<Type_of_Property>(db.Type_of_Property);
+            Tar = new ObservableCollection<Target>(db.Target);
+            Ar = new ObservableCollection<Area>(db.Area);
+            Bat = new ObservableCollection<Bathroom>(db.Bathroom);
+            Lay = new ObservableCollection<Layout>(db.Layout);
+            Mat = new ObservableCollection<Material>(db.Material);
+
+            Pr_Cost = prop.Pr_Cost;
+            Pr_Address = prop.Pr_Address;
+            Pr_Metric_area = prop.Pr_Metric_area;
+            Pr_Floor = prop.Pr_Floor;
+            Pr_Plot_size = prop.Pr_Plot_size;
+            Pr_Number_of_rooms = prop.Pr_Number_of_rooms;
+        }
 
 
         decimal Pr_Cost;
@@ -37,7 +62,6 @@ namespace WpfApp1.ViewsModels
         decimal? Pr_Plot_size;
         int Pr_Number_of_rooms;
 
-        
 
         public decimal prCost
         {
@@ -193,7 +217,9 @@ namespace WpfApp1.ViewsModels
         {
             get
             {
-                return addCommand ??
+                if (add)
+                {
+                    return addCommand ??
                   (addCommand = new RelayCommand(obj =>
                   {
                       Property property = new Property();
@@ -214,6 +240,37 @@ namespace WpfApp1.ViewsModels
                       property.Pr_Material_FK = selectMat.Id_Material;
 
                       db.Property.Add(property);
+                      db.SaveChanges();
+                      win.Close();
+                  }));
+                }
+                else
+                {
+                    return upDateCommand ??
+                     (upDateCommand = new RelayCommand(obj =>
+                     {
+                         property.Pr_Cost = Pr_Cost;
+                         property.Pr_Address = Pr_Address;
+                         property.Pr_Metric_area = Pr_Metric_area;
+                         property.Pr_Floor = Pr_Floor;
+                         property.Pr_Plot_size = Pr_Plot_size;
+                         property.Pr_Number_of_rooms = Pr_Number_of_rooms;
+
+                         db.SaveChanges();
+                         win.Close();
+                     }));
+                }
+            }
+        }
+
+        private RelayCommand upDateCommand;
+        public RelayCommand UpDateCommand
+        {
+            get
+            {
+                return upDateCommand ??
+                  (upDateCommand = new RelayCommand(obj =>
+                  {
                       db.SaveChanges();
                       win.Close();
                   }));

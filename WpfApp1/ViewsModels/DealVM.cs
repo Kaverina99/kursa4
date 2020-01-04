@@ -22,6 +22,7 @@ namespace WpfApp1.ViewModels
             get { return selectedDeal; }
             set
             {
+
                 selectedDeal = value;
                 OnPropertyChanged("SelectedDeal");
             }

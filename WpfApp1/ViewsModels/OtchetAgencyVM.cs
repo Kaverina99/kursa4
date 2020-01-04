@@ -28,7 +28,9 @@ namespace WpfApp1.ViewModels
             public string Pr_Address { get; set; }
             public string Client_Name { get; set; }
             public string Agent_Name { get; set; }
-            public decimal Deal_Total_Cost { get; set; }
+            public decimal TotalCostAgency { get; set; }
+            public decimal Agency { get; set; }
+            public decimal Deal_AgentShare_Cost { get; set; }
 
         }
         DateTime DatePicker1 { get; set; }

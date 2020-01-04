@@ -1,0 +1,114 @@
+﻿<Window x:Class="WpfApp1.PoiskPropertyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Background="#FFDCC3C3"
+        Title="Поиск недвижимости" Height="580" Width="830" MinWidth="830" MinHeight="580" MaxWidth="830" MaxHeight="580" >
+    <Grid >
+        <Grid Background="#FFDCC3C3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="137"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <DataGrid Name="dataGridProperty" ItemsSource="{Binding poisks}"  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"  FontSize="12" Background="#FFE6E6D2" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id_Property}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Pr_Cost}"/>
+                    <DataGridTextColumn Header="Адрес" Binding="{Binding Pr_Address}"/>
+                    <DataGridTextColumn Header="Метражность" Binding="{Binding Pr_Metric_area}"/>
+                    <DataGridTextColumn Header="Этажность" Binding="{Binding Pr_Floor}"/>
+                    <DataGridTextColumn Header="Участок" Binding="{Binding Pr_Plot_size}"/>
+                    <DataGridTextColumn Header="Комнаты" Binding="{Binding Pr_Number_of_rooms}"/>
+
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding Client_Name}"/>
+                    <DataGridTextColumn Header="Вид недвижимости" Binding="{Binding TypeP_Name}"/>
+                    <DataGridTextColumn Header="Цель" Binding="{Binding Target_Name}"/>
+                    <DataGridTextColumn Header="Район" Binding="{Binding Area_Name}"/>
+                    <DataGridTextColumn Header="Сан. узел" Binding="{Binding Bathroom_Name}"/>
+                    <DataGridTextColumn Header="Планировка" Binding="{Binding Layout_Name}"/>
+                    <DataGridTextColumn Header="Материал" Binding="{Binding Material_Name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="82*"/>
+                    <RowDefinition Height="55*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="330*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="155*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="153*"/>
+                    <ColumnDefinition Width="11*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="3" Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="165*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="156*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="43*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Вид недвижимости:"  VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" Grid.Column="0" />
+                    <ComboBox Name="ComboBoxPropertyType" ItemsSource="{Binding Tip}" SelectedItem ="{Binding SelectTip}" SelectedIndex="{Binding comboBoxPropertyType}" DisplayMemberPath="TypeP_Name" FontSize="14" VerticalAlignment="Center"  Height="35" Grid.Row="1" Grid.Column="0" />
+
+                    <Label Content="Цель:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" Grid.Column="2" />
+                    <ComboBox Name="ComboBoxPropertyTarget" SelectedIndex="{Binding comboBoxPropertyTarget}" ItemsSource="{Binding Tar}" SelectedItem ="{Binding SelectTar}" DisplayMemberPath="Target_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Row="1" Grid.Column="2"/>
+                </Grid>
+
+                <Grid Grid.Column="3" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="152*"/>
+                        <ColumnDefinition Width="26*"/>
+                        <ColumnDefinition Width="79*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Район:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Height="30" Grid.Column="0" />
+                    <ComboBox Name="ComboBoxPropertyRaion" SelectedIndex="{Binding comboBoxPropertyRaion}" ItemsSource="{Binding Ar}" SelectedItem ="{Binding SelectAr}" DisplayMemberPath="Area_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Column="2" />
+                   
+                    <Label Content="Сан. узел:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Height="29" Grid.Column="4" />
+                </Grid>
+
+                <Grid Grid.Column="5" Grid.Row="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="43*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Планировка:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0" />
+                    <ComboBox Name="ComboBoxPropertyPlan" SelectedIndex="{Binding comboBoxPropertyPlan}" ItemsSource="{Binding Lay}" SelectedItem ="{Binding SelectLay}" DisplayMemberPath="Layout_Name" FontSize="14" VerticalAlignment="Center" Height="35" Grid.Row="1"/>
+                </Grid>
+
+                <ComboBox Name="ComboBoxPropertyBat" SelectedIndex="{Binding comboBoxPropertyBat}"  ItemsSource="{Binding Bat}" SelectedItem ="{Binding SelectBat}" DisplayMemberPath="Bathroom_Name" FontSize="14" VerticalAlignment="Center"  Height="35" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Margin="1,10.4,6.4,9.8"/>
+
+                <Button Name="ButtonPropertyPoisk" Command="{Binding PoiskCommand}" Content="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="85" FontSize="14" FontWeight="Bold" Foreground="#FFA51E1E" Grid.Column="7" Grid.Row="1" />
+
+                <Grid Grid.Column="7" Grid.Row="0"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="43*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Материал:" VerticalAlignment="Bottom" FontSize="14" Height="30" Grid.Row="0"  />
+                    <ComboBox Name="ComboBoxPropertyMater" SelectedIndex="{Binding comboBoxPropertyMater}" ItemsSource="{Binding Mat}" SelectedItem ="{Binding SelectMat}" DisplayMemberPath="Material_Name" FontSize="14"   VerticalAlignment="Center" Height="35" Grid.Row="1"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

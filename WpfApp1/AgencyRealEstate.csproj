@@ -69,6 +69,9 @@
     <Compile Include="DealWindow.xaml.cs">
       <DependentUpon>DealWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PoiskPropertyWindow.xaml.cs">
+      <DependentUpon>PoiskPropertyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PropertyWindow.xaml.cs">
       <DependentUpon>PropertyWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,7 @@
     <Compile Include="ViewsModels\NewPropertyVM.cs" />
     <Compile Include="ViewsModels\OtchetAgencyVM.cs" />
     <Compile Include="ViewsModels\OtchetAgentVM.cs" />
+    <Compile Include="ViewsModels\PoiskPropertyVM.cs" />
     <Compile Include="ViewsModels\RelayCommand.cs" />
     <Compile Include="ViewsModels\ClientVM.cs" />
     <Compile Include="ViewsModels\DealVM.cs" />
@@ -106,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PoiskPropertyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PropertyWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,8 +137,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

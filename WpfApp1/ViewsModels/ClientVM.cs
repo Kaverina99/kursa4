@@ -59,7 +59,7 @@ namespace WpfApp1.ViewModels
                   }));
             }
         }
-        // команда удаления
+        // команда изменеия
         private RelayCommand upDateCommand;
         public RelayCommand UpDateCommand
         {

@@ -26,5 +26,10 @@ namespace Agency
             InitializeComponent();
             DataContext = new NewPropertyVM(context, this);
         }
+        public PropertyWindow(AgencyDB context, Property pro)
+        {
+            InitializeComponent();
+            DataContext = new NewPropertyVM(context, this, pro);
+        }
     }
 }

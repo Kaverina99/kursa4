@@ -60,6 +60,8 @@ namespace WpfApp1.ViewModels
             public string Client_Phone { get; set; }
             public decimal Deal_Total_Cost { get; set; }
             public decimal Deal_AgentShare_Cost { get; set; }
+            public decimal TotalCostAgency { get; set; }
+
         }
 
         DateTime DateAgent1 { get; set; }
